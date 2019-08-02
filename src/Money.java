@@ -1,8 +1,8 @@
 
 public class Money {
 	
-	protected int amount;
-	protected String currency;
+	private int amount;
+	private String currency;
 	
 	Money(int amount, String currency) {
 		this.amount = amount;
