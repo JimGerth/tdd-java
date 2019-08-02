@@ -43,6 +43,13 @@ class FrancTest {
 	}
 	
 	@Test
+	public void testSumTimes() {
+		Bank bank = new Bank();
+		bank.addRate("CHF",  "USD", 2);
+		assertEquals(bank.reduce(Money.dollar(5).plus(Money.franc(10)).times(2), "USD"), Money.dollar(20));
+	}
+	
+	@Test
 	public void testCurrencyConversion() {
 		Bank bank = new Bank();
 		bank.addRate("CHF", "USD", 2);
