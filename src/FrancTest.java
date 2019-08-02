@@ -22,5 +22,10 @@ class FrancTest {
 	public void testCurrency() {
 		assertEquals("CHF", Money.franc(1).currency());
 	}
+	
+	@Test
+	public void testSimpleAddition() {
+		assertEquals(Money.franc(10).plus(Money.franc(10)), Money.franc(20));
+	}
 
 }

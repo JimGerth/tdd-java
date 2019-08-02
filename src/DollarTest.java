@@ -22,5 +22,10 @@ class DollarTest {
 	public void testCurrency() {
 		assertEquals("USD", Money.dollar(1).currency());
 	}
+	
+	@Test
+	public void testSimpleAddition() {
+		assertEquals(Money.dollar(10).plus(Money.dollar(10)), Money.dollar(20));
+	}
 
 }

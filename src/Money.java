@@ -27,6 +27,10 @@ public class Money {
 	public Money times(int multiplier) {
 		return new Money(amount * multiplier, currency);
 	}
+
+	public Money plus(Money added) {
+		return new Money(amount + added.amount, currency);
+	}
 	
 	/* getter for private field currency */
 	String currency() {
