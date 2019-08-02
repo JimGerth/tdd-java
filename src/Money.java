@@ -1,7 +1,7 @@
 
-public class Money {
+public class Money implements Expression {
 	
-	private int amount;
+	int amount;
 	private String currency;
 	
 	Money(int amount, String currency) {
@@ -28,8 +28,16 @@ public class Money {
 		return new Money(amount * multiplier, currency);
 	}
 
-	public Money plus(Money added) {
-		return new Money(amount + added.amount, currency);
+	public Expression plus(Money addend) {
+		return new Sum(this, addend);
+	}
+	
+	public Money reduce(String currency) {
+		return this;
+	}
+	
+	public String toString() {
+		return amount + " " + currency;
 	}
 	
 	/* getter for private field currency */

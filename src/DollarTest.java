@@ -25,7 +25,9 @@ class DollarTest {
 	
 	@Test
 	public void testSimpleAddition() {
-		assertEquals(Money.dollar(10).plus(Money.dollar(10)), Money.dollar(20));
+		assertEquals(new Bank().reduce(Money.dollar(1), "USD"), Money.dollar(1));
+		assertEquals(new Bank().reduce((Sum) Money.dollar(5).plus(Money.dollar(5)), "USD"), Money.dollar(10));
+		assertEquals(new Bank().reduce((Sum) Money.dollar(10).plus(Money.dollar(10)), "USD"), Money.dollar(20));
 	}
 
 }

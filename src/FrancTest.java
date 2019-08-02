@@ -25,7 +25,10 @@ class FrancTest {
 	
 	@Test
 	public void testSimpleAddition() {
-		assertEquals(Money.franc(10).plus(Money.franc(10)), Money.franc(20));
+		assertEquals(new Bank().reduce(Money.franc(1), "CHF"), Money.franc(1));
+		assertEquals(new Bank().reduce((Sum) Money.franc(5).plus(Money.franc(5)), "CHF"), Money.franc(10));
+		assertEquals(new Bank().reduce((Sum) Money.franc(10).plus(Money.franc(10)), "CHF"), Money.franc(20));
+		
 	}
 
 }
