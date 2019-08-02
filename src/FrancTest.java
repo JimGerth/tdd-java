@@ -31,6 +31,18 @@ class FrancTest {
 	}
 	
 	@Test
+	public void testMixedAddition() {
+		Bank bank = new Bank();
+		bank.addRate("CHF", "USD", 2);
+		assertEquals(bank.reduce(Money.dollar(5).plus(Money.franc(10)), "USD"), Money.dollar(10));
+	}
+	
+	@Test
+	public void testMultipleAddition() {
+		assertEquals(new Bank().reduce(Money.franc(5).plus(Money.franc(10)).plus(Money.franc(15)), "CHF"), Money.franc(30));
+	}
+	
+	@Test
 	public void testCurrencyConversion() {
 		Bank bank = new Bank();
 		bank.addRate("CHF", "USD", 2);
