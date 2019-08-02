@@ -28,7 +28,18 @@ class FrancTest {
 		assertEquals(new Bank().reduce(Money.franc(1), "CHF"), Money.franc(1));
 		assertEquals(new Bank().reduce((Sum) Money.franc(5).plus(Money.franc(5)), "CHF"), Money.franc(10));
 		assertEquals(new Bank().reduce((Sum) Money.franc(10).plus(Money.franc(10)), "CHF"), Money.franc(20));
-		
+	}
+	
+	@Test
+	public void testCurrencyConversion() {
+		Bank bank = new Bank();
+		bank.addRate("CHF", "USD", 2);
+		assertEquals(bank.reduce(Money.franc(2), "USD"), Money.dollar(1));
+	}
+	
+	@Test
+	public void testIdentityRate() {
+		assertEquals(1, new Bank().rate("CHF", "CHF"));
 	}
 
 }

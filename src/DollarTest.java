@@ -29,5 +29,17 @@ class DollarTest {
 		assertEquals(new Bank().reduce((Sum) Money.dollar(5).plus(Money.dollar(5)), "USD"), Money.dollar(10));
 		assertEquals(new Bank().reduce((Sum) Money.dollar(10).plus(Money.dollar(10)), "USD"), Money.dollar(20));
 	}
+	
+	@Test
+	public void testCurrencyConversion() {
+		Bank bank = new Bank();
+		bank.addRate("USD", "CHF", 2);
+		assertEquals(bank.reduce(Money.dollar(2), "CHF"), Money.franc(1));
+	}
+	
+	@Test
+	public void testIdentityRate() {
+		assertEquals(1, new Bank().rate("USD", "USD"));
+	}
 
 }
