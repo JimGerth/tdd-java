@@ -2,12 +2,13 @@ import java.util.Hashtable;
 
 public class Bank {
 	
-	private Hashtable rates = new Hashtable();
+	private Hashtable<Pair, Integer> rates = new Hashtable<Pair, Integer>();
 
 	public Money reduce(Expression expression, String currency) {
 		return expression.reduce(this, currency);
 	}
 
+	@SuppressWarnings("deprecation")
 	public void addRate(String currency1, String currency2, int rate) {
 		rates.put(new Pair(currency1, currency2), new Integer(rate));
 	}
