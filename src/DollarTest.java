@@ -60,5 +60,10 @@ class DollarTest {
 	public void testIdentityRate() {
 		assertEquals(1, new Bank().rate("USD", "USD"));
 	}
+	
+	@Test
+	public void testExpressionComparison() {
+		assertEquals(Money.dollar(15).plus(Money.dollar(5)).times(3), Money.dollar(10).times(5).plus(Money.dollar(10)));
+	}
 
 }

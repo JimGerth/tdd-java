@@ -60,5 +60,10 @@ class FrancTest {
 	public void testIdentityRate() {
 		assertEquals(1, new Bank().rate("CHF", "CHF"));
 	}
+	
+	@Test
+	public void testExpressionComparison() {
+		assertEquals(Money.franc(15).plus(Money.franc(5)).times(3), Money.franc(10).times(5).plus(Money.franc(10)));
+	}
 
 }

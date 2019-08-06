@@ -20,5 +20,10 @@ public class Sum implements Expression {
 	public Expression times(int multiplier) {
 		return new Sum(augend.times(multiplier), addend.times(multiplier));
 	}
+	
+	public boolean equals(Object object) {
+		Expression expression = (Expression) object;
+		return new Bank().reduce(expression, "USD").equals(new Bank().reduce(this, "USD"));
+	}
 
 }

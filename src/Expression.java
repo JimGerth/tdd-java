@@ -7,4 +7,6 @@ public interface Expression {
 
 	Expression times(int multiplier);
 	
+	public boolean equals(Object object);
+	
 }
